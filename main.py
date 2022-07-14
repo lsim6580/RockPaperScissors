@@ -1,5 +1,15 @@
 from enum import Enum
 import random
+class Announcer:
+
+    
+    def start_game(self):
+        print("Lets Play Rock, Paper, Scissors")
+        print("ROCK!")
+        print("PAPER!")
+        print("SCISSORS!")
+    def announce_winner(self, winner_name):
+        print(f"{winner_name} Has won")
 
 class ROCK_PAPER_SCISSORS(Enum):
     ROCK = 1
@@ -7,18 +17,17 @@ class ROCK_PAPER_SCISSORS(Enum):
     SCISSORS = 3
     
 def main():
-    print("Lets Play Rock, Paper, Scissors")
-    print("ROCK!")
-    print("PAPER!")
-    print("SCISSORS!")
+    announcer = Announcer()
+    announcer.start_game()
     winner = 0
     while winner == 0:
         selections = playersTurn()
         winner = winningSelection(selections[0], selections[1])
         if(winner == -1):
-            print("YAY!! you WON!!")
+            announcer.announce_winner("money")
         elif(winner == 1):
-            print("Bob whooped your butt!")
+            announcer.announce_winner("dog")
+    announcer = Announcer()
 
 
     return
